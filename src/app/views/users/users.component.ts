@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { freeSet } from '@coreui/icons';
 
-import { UserBasic } from '../../domain/users/userBasic';
+import { UserBasicModel } from '../../domain/users/userBasic.model';
+import { UsersService } from "../../services/users.service";
 
 @Component({
   selector: 'app-users',
@@ -10,11 +10,18 @@ import { UserBasic } from '../../domain/users/userBasic';
 })
 export class UsersComponent implements OnInit{
 
-  users: UserBasic[] = [];
+  users: UserBasicModel[] = [];
+
+  constructor(private userServices: UsersService) {}
 
   ngOnInit(): void {
-    this.users.push(new UserBasic(1, 'John', 'Doe', 'Perez', 'Diaz', 'pd@gmail.com', 'pdiaz'));
-    this.users.push(new UserBasic(2, 'David', 'Andres', 'Gonzales', 'Nin', 'dagonzales@gmail.com', 'dagonzales'));
+    this.userServices.getAllUsers().subscribe(
+      (data: UserBasicModel[]) => {
+        this.users = data;
+        console.log(this.users);
+      }, error => {
+        console.error(error);
+      }
+    );
   }
-
 }
