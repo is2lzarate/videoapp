@@ -1,0 +1,45 @@
+<c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card>
+      <c-card-header>Usuarios</c-card-header>
+      <c-card-body>
+        <table [striped]="true" cTable>
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Usuario</th>
+            <th scope="col">Primer Nombre</th>
+            <th scope="col">Segundo Nombre</th>
+            <th scope="col">Primer Apellido</th>
+            <th scope="col">Segundo Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let user of users">
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.username}}</td>
+            <td>{{user.firstName}}</td>
+            <td>{{user.secondName}}</td>
+            <td>{{user.firstLastName}}</td>
+            <td>{{user.secondLastName}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <button [color]="'info'" cButton>
+                <svg cIcon name="cil-chevron-right"></svg>
+              </button>
+              <button [color]="'warning'" cButton>
+                <svg cIcon name="cil-pencil"></svg>
+              </button>
+              <button [color]="'danger'" cButton>
+                <svg cIcon name="cil-drop"></svg>
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row>
