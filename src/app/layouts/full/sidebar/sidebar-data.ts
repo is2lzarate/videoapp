@@ -13,7 +13,7 @@ export const navItems: NavItem[] = [
     navCap: 'Ui Components',
   },
   {
-    displayName: 'Usuarios',
+    displayName: 'Usuario',
     iconName: 'user',
     route: '/ui-components/usuarios',
   },
