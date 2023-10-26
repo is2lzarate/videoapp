@@ -3,33 +3,44 @@
     <mat-card-title class="m-b-0">Usuarios</mat-card-title>
   </mat-card-header>
   <mat-card-content class="b-t-1">
-    <table class="table">
+    <table class="table table-striped table-bordered">
       <thead>
       <tr>
         <th scope="col">Username</th>
-        <th scope="col">Nombres y Apellidos</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
         <th scope="col">Correo</th>
         <th scope="col">Acciones</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
+      <tr *ngFor="let user of listUsers">
+        <td>{{user.username}}</td>
+        <td>{{user.firstName}} {{user.secondName}}</td>
+        <td>{{user.firstLastName}} {{user.secondLastName}}</td>
+        <td>{{user.email}}</td>
+        <td>
+          <button type="button" class="btn btn-primary button-margin">
+            <i-tabler
+              class="routeIcon"
+              name="eye-search"
+              matListItemIcon
+            ></i-tabler>
+          </button>
+          <button type="button" class="btn btn-warning button-margin">
+            <i-tabler
+              class="routeIcon"
+              name="edit"
+              matListItemIcon
+            ></i-tabler>
+          </button>
+          <button type="button" class="btn btn-danger button-margin">
+            <i-tabler
+            class="routeIcon"
+            name="trash"
+            matListItemIcon></i-tabler>
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
